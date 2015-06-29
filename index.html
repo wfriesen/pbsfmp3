@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript">
+$(document).ready(function() {
+	var playerDiv = $('#jwplayer-1-div');
+	var flashvars = playerDiv.find('param[name="flashvars"]').attr("value");
+	var allVars = flashvars.split('&');
+	var file = $.grep(allVars, function(a) {
+		return a.indexOf('file=') === 0;
+	})[0];
+	var url = file.replace('file=', '');
+	url = decodeURIComponent(url);
+	playerDiv.after('<a href="' + url + '">Download</a>');
+});
+		</script>
+	</head>
+	<body>
+
+		<div id="jwplayer-1-div">
+			<div id="jwplayer-1_wrapper" style="position: relative; width: 300px; height: 20px;">
+				<object type="application/x-shockwave-flash" data="http://pbsfm.org.au/sites/default/files/jwplayermodule/player/player.swf" width="100%" height="100%" bgcolor="#000000" id="jwplayer-1" name="jwplayer-1" tabindex="0" style="display: block !important;">	<param name="allowfullscreen" value="true">
+					<param name="allowscriptaccess" value="always">
+					<param name="seamlesstabbing" value="true">
+					<param name="wmode" value="window">
+					<param name="flashvars" value="netstreambasepath=http%3A%2F%2Fpbsfm.org.au%2Ftaxonomy%2Fterm%2F633%2F2015-06-26&amp;id=jwplayer-1&amp;className=jwplayer%20jwplayerInit-processed&amp;wmode=window&amp;allowscriptaccess=always&amp;allowfullscreen=false&amp;file=http%3A%2F%2Fmedia.emit.com%2Fpbs%2Fthrough-the-collapse%2F201506260000%2Faac_mid.aac&amp;image=false&amp;config=http%3A%2F%2Fpbsfm.org.au%2Fsites%2Fdefault%2Ffiles%2Fjwplayermodule%2Fconfigs%2Frod.xml&amp;controlbar.position=bottom">
+				</object>
+				<div class="flc-panel" title="Click to load Flash content" style="width: 564px; height: 20px; top: auto; left: auto; display: none !important;"></div>
+			</div>
+		</div>
+
+	</body>
+</html>
